@@ -1,0 +1,20 @@
+'''
+#! Creating the table in Snowflakes
+
+create or replace TABLE TEST123.SCHEMA123.FINAL (
+	VIDEO_ID VARCHAR(16777216),
+	VIDEO_AUTHOR VARCHAR(16777216),
+	VIDEO_DURATION VARCHAR(16777216),
+	VIDEO_LIKES NUMBER(38,0),
+	VIDEO_VIEWS NUMBER(38,0),
+	VIDEO_TITLE VARCHAR(16777216),
+	THUMBNAIL_URL VARCHAR(16777216),
+	CHANNEL_ID VARCHAR(16777216),
+	CHANNEL_NAME VARCHAR(16777216),
+	CHANNEL_LOGO VARCHAR(16777216)
+);
+'''
+
+# * ------------------------------------------------------------------------------------------------------------------
+
+

@@ -1,0 +1,48 @@
+{% extends 'common.html' %}
+
+
+{% block title %}
+   All Comments
+{% endblock title %}
+
+
+{% block body %}
+<div class="container">
+    <form method="post" action="/homepage">
+        <button type="submit" class="btn btn-outline-dark" name="delete_databases" ,id="delete_databases">Click here
+            to go to home page</button>
+    </form>
+</div>
+<table class="table table-success table-striped">
+        <th>User Name</th>
+        <th>Main Comment</th>
+        <th>Replies</th> 
+    
+    {% for comment in comments %}
+        <tr>
+            <td>
+                {{comment['parent_user_name']}}
+            </td>
+
+            <td>
+                {{comment['parent_comment']}}        
+            </td>
+
+            <td>
+                {{comment['replies']}}
+            </td>
+
+        </tr>
+    {% endfor %}
+</table>
+    
+
+
+
+
+
+
+
+
+
+{% endblock body %}

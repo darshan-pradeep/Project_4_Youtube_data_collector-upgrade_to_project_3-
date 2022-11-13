@@ -1,0 +1,92 @@
+{% extends 'common.html' %}
+
+
+{% block title %}
+Display all videos
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <form method="post" action="/homepage">
+        <button type="submit" class="btn btn-outline-dark" name="delete_databases" ,id="delete_databases">Click here
+            to go to home page</button>
+    </form>
+</div>
+
+
+{% for detail in details %}
+
+<div class="container">
+    <div class="card mb-3" style="height: 460px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="data:image/png;base64,{{detail[1]}}" class="img-fluid rounded-start mt-5" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h4 class="card-title" style="text-align:left ;">{{detail[0][5]}}</h4>
+                    <div class="row">
+
+
+                        <div class="col-md-8 text-center">
+                            <table class="table table-dark table-striped my-4 mr-2"
+                                style="width: 450px;height: 200px;border-collapse:separate; ">
+                                <tr>
+                                    <th>Video Duration:</th>
+                                    <td>{{detail[0][2]}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Views:</th>
+                                    <td>{{detail[0][4]}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Likes:</th>
+                                    <td>{{detail[0][3]}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Comment Count:</th>
+                                    <td>{{detail[0][10]}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-4" style="text-align:center;">
+                            <form method="post" action="/comments">
+                                <button type="submit" class="btn btn-success btn-lg mt-5" value="{{detail[0][0]}}"
+                                    name="vid_id">View Comments</button>
+                            </form>
+                        </div>
+                        <div class="container mt-4">
+                            <div class="row">
+                                <div class="col-md-4"><a href="https://www.youtube.com/watch?v={{detail[0][0]}}"
+                                        target="_blank"><button type="submit" class="btn btn-info">Take me to the
+                                            YouTube
+                                            Video</button></a></div>
+                                <div class="col-md-4">
+                                    <form method="post" action="/download">
+                                        <button type="submit" class="btn btn-danger" value="{{detail[0][0]}}"
+                                        name="vid_id"">Download Video</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form method="post" action="/upload">
+                                        <button type="submit" class="btn btn-success" value="{{detail[0][0]}}"
+                                        name="vid_id"">Upload Video to S3 Bucket</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endfor %}
+
+
+{% endblock body %}

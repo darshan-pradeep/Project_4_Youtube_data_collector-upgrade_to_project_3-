@@ -1,0 +1,32 @@
+{% extends 'common.html' %}
+
+{% block title %}
+Homepage
+{% endblock title %}
+
+{% block body %}
+<div class="container my-5" style="text-align:center ;">
+  <h1>Welcome to Homepage</h1>
+</div>
+
+<div class="container" style="text-align:center">
+
+  <form method="post" action="/channelpage">
+    <div class="mb-3">
+      <label for="channel_url" class="form-label">Enter Channel URL</label>
+      <input type="channel_url" class="form-control" id="channel_url" name="channel_url" aria-describedby="emailHelp">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+
+<div class="container">
+  <form method="post" action="/deletedatabases">
+    <button type="submit" class="btn btn-outline-dark" name="delete_databases",id="delete_databases">Click here to clear all databases</button>
+  </form>
+</div>
+
+
+{% endblock body %}
