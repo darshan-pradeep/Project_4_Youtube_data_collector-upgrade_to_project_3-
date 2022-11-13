@@ -12,7 +12,6 @@ from helpers import mongodb
 from helpers import display
 from helpers import empty_databases
 from helpers import comments_reader
-from helpers import video_downloader
 from helpers import upload_to_s3
 app=Flask(__name__)
 
@@ -22,10 +21,12 @@ def favicon():
 
 
 @app.route('/')
-@app.route('/homepage',methods=['POST'])
+@app.route('/homepage',methods=['GET','POST'])
 def homepage():
-    return render_template ('homepage.html')
-
+    if request.method=='GET':
+        return render_template ('homepage.html')
+    if request.method=='POST':
+        return render_template ('homepage.html')
 
 @app.route('/channelpage',methods=['POST'])
 def channelpage():
