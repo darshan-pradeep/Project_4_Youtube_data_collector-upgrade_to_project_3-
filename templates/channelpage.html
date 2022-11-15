@@ -6,39 +6,47 @@ channel_page
 
 
 {% block body %}
-<div class="container my-5" style="text-align:center ;">
-  <div class="container">
-    <form method="post" action="/deletedatabases">
-      <button type="submit" class="btn btn-outline-dark" name="delete_databases" ,id="delete_databases">Click here to
-        clear all databases</button>
-    </form>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="{{channel_id_name_logo[0]['channel_logo']}}" class="card-img-top" alt="channel logo">
-    <div class="card-body">
-      <h5 class="card-title">{{channel_id_name_logo[0]['channel_name']}}</h5>
-      <p class="card-text">Channel ID : {{channel_id_name_logo[0]['channel_id']}}</p>
-
-      <form method="post" action="/top50_videos">
-        <div class="mb-3">
-          <label for="number_of_videos" class="form-label">Enter Number of videos : </label>
-          <input type="number_of_videos" class="form-control" id="number_of_videos" name="number_of_videos"
-            aria-describedby="emailHelp">
-          <input type="hidden" class="form-control" name="channel_id" value="{{channel_id_name_logo[0]['channel_id']}}"
-            aria-describedby="emailHelp">
-          <input type="hidden" class="form-control" name="channel_name"
-            value="{{channel_id_name_logo[0]['channel_name']}}" aria-describedby="emailHelp">
-          <input type="hidden" class="form-control" name="channel_logo"
-            value="{{channel_id_name_logo[0]['channel_logo']}}" aria-describedby="emailHelp">
-          <input type="hidden" class="form-control" name="channel_id_name_logo" value="{{channel_id_name_logo}}"
-            aria-describedby="emailHelp">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+<div class="container my-2" style="text-align:center ;">
+  <div class="col md-12 my-4" style="text-align:center ;">
+    <div class="container">
+      <form method="post" action="/deletedatabases">
+        <button type="submit" class="btn btn-outline-dark" name="delete_databases" ,id="delete_databases">Click here
+          to
+          clear all databases</button>
       </form>
     </div>
   </div>
+  <div class="col md-12" style="text-align:center" >
+    <div class=" container my-5" style="text-align:center ;">
+    <div class="card" style="width: 20rem;">
+      <img src="{{channel_id_name_logo[0]['channel_logo']}}" class="card-img-top" alt="channel logo">
+      <div class="card-body">
+        <h5 class="card-title">{{channel_id_name_logo[0]['channel_name']}}</h5>
+        <p class="card-text">Channel ID : {{channel_id_name_logo[0]['channel_id']}}</p>
+        <form method="post" action="/top50_videos">
+          <div class="mb-3">
+            <label for="number_of_videos" class="form-label">Enter Number of videos : </label>
+            <input type="number_of_videos" class="form-control" id="number_of_videos" name="number_of_videos"
+              aria-describedby="emailHelp">
+            <input type="hidden" class="form-control" name="channel_id"
+              value="{{channel_id_name_logo[0]['channel_id']}}" aria-describedby="emailHelp">
+            <input type="hidden" class="form-control" name="channel_name"
+              value="{{channel_id_name_logo[0]['channel_name']}}" aria-describedby="emailHelp">
+            <input type="hidden" class="form-control" name="channel_logo"
+              value="{{channel_id_name_logo[0]['channel_logo']}}" aria-describedby="emailHelp">
+            <input type="hidden" class="form-control" name="channel_id_name_logo" value="{{channel_id_name_logo}}"
+              aria-describedby="emailHelp">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
+</div>
+
+
 
 
 {% endblock body %}

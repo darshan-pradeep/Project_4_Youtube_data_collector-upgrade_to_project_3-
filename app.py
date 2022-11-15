@@ -88,13 +88,22 @@ def download():
     buffer.seek(0)
     return send_file(buffer, as_attachment = True, download_name= 'video.mp4')
     
+@app.route('/awsuploadconfirm',methods=['POST'])
+def awsuploadconfirm():
+    video_id=request.form.get('vid_id')
+    return render_template('awsconfirmation.html',video_id=video_id)    
+
+
 
 @app.route('/upload',methods=['POST'])
 def upload():
-    video_id=request.form.get('vid_id')
-    upload_to_s3.main(video_id)
-    return render_template ('successfull.html')
-
+    password=request.form.get('aws_pass')
+    if password==os.environ['AWS_UPLOAD_PASSWORD']:
+        video_id=request.form.get('vid_id')
+        upload_to_s3.main(video_id)
+        return render_template ('successfull.html')
+    else:
+        return render_template ('wrong_credentials.html')
 
 if __name__=='__main__':
     app.run(debug=True)

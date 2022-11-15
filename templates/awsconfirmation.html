@@ -1,0 +1,23 @@
+{% extends 'common.html' %}
+
+{% block title %}
+    Confirm Credentials
+{% endblock title %}
+
+
+{% block body %}
+<div class="container" style="text-align:center">
+
+    <form method="post" action="/upload">
+      <div class="mb-3">
+        <label for="aws_pass" class="form-label">Enter password to upload in AWS S3 Bucket</label>
+        <input type="aws_pass" class="form-control" id="aws_pass" name="aws_pass" aria-describedby="emailHelp">
+        <input type="hidden" class="form-control" name="vid_id" value="{{video_id}}"
+              aria-describedby="emailHelp">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  
+  </div>    
+
+{% endblock body %}
