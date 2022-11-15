@@ -31,9 +31,11 @@ def homepage():
 @app.route('/channelpage',methods=['POST'])
 def channelpage():
     channel_url=request.form.get('channel_url')
-    channel_id_name_logo=channel_details.channel_details_gather(channel_url)
-    return render_template ('channelpage.html',channel_id_name_logo=channel_id_name_logo)
-
+    try:
+        channel_id_name_logo=channel_details.channel_details_gather(channel_url)
+        return render_template ('channelpage.html',channel_id_name_logo=channel_id_name_logo)
+    except:
+        return render_template('wrong_credentials.html')
 
 @app.route('/top50_videos',methods=['POST'])
 def top50_videos():
